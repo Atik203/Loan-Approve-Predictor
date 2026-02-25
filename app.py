@@ -103,4 +103,4 @@ app = gr.Interface(
     description="Enter your details below to check if your loan will be approved or not.",
 )
 
-app.launch(share=True)
+app.launch()
