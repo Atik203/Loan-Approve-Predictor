@@ -1,0 +1,8 @@
+# Ignore these files when pushing to HuggingFace Spaces
+data.csv
+loan_predictor.ipynb
+train.py
+venv/
+*.pyc
+__pycache__/
+.gitattributes
