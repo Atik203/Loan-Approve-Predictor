@@ -74,10 +74,21 @@ def predict_loan(
     prediction = model.predict(input_df)[0]
     probability = model.predict_proba(input_df)[0]
 
+    approved_prob = probability[1] * 100
+    rejected_prob = probability[0] * 100
+
     if prediction == 1:
-        return f"✅ Loan APPROVED (Confidence: {probability[1]*100:.1f}%)"
+        return (
+            f"✅ Loan APPROVED\n"
+            f"Approval Probability: {approved_prob:.1f}%\n"
+            f"Rejection Probability: {rejected_prob:.1f}%"
+        )
     else:
-        return f"❌ Loan NOT APPROVED (Confidence: {probability[0]*100:.1f}%)"
+        return (
+            f"❌ Loan NOT APPROVED\n"
+            f"Rejection Probability: {rejected_prob:.1f}%\n"
+            f"Approval Probability: {approved_prob:.1f}%"
+        )
 
 
 # ^ Interface
